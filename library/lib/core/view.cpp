@@ -2530,6 +2530,7 @@ void View::updateAppletFrameItem()
         appletFrame->updateAppletFrameItem();
         appletFrame->setTitle(getAppletFrameItem()->title);
         appletFrame->setIcon(getAppletFrameItem()->iconPath);
+        appletFrame->setIcon(getAppletFrameItem()->iconTexture);
     }
 }
 

@@ -131,6 +131,19 @@ AppletFrame::AppletFrame(View* contentView)
     setContentView(contentView);
 }
 
+void AppletFrame::setIcon(int tex)
+{
+    if (tex == 0)
+    {
+        this->icon->setVisibility(Visibility::GONE);
+    }
+    else
+    {
+        this->icon->setVisibility(Visibility::VISIBLE);
+        this->icon->innerSetImage(tex);
+    }
+}
+
 void AppletFrame::setIcon(std::string path)
 {
     if (path.empty())
@@ -232,6 +245,7 @@ void AppletFrame::updateAppletFrameItem()
 
     setTitle(contentView->getAppletFrameItem()->title);
     setIcon(contentView->getAppletFrameItem()->iconPath);
+    setIcon(contentView->getAppletFrameItem()->iconTexture);
 
     if (contentView->getAppletFrameItem()->getHintView())
         hintBox->addView(contentView->getAppletFrameItem()->getHintView());
